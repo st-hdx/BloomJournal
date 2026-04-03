@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D9470BE2BE74AEB8B71841A /* VisionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBF08504C4447AB3D4563F /* VisionDetailView.swift */; };
+		27F3A1342C1443C99D5C33C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45E08515F714B87A083AA75 /* Assets.xcassets */; };
+		2BBC4E5CED5443FBB80A088E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAE4D6DD9A4753B3186068 /* HomeView.swift */; };
+		42E20213CF4B4D74BA6F50C8 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F5DCB00E34E0DBA64D332 /* Vision.swift */; };
+		4E5B3BC69A2F4D6A90237651 /* VisionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */; };
+		598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */; };
+		6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */; };
+		85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF776A06B411590BE6DF3 /* ReleaseView.swift */; };
+		87E5D301AACC44C2B6C551D6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21529BC6424F08896B8CD5 /* JournalingView.swift */; };
+		8BC82AF8099D4B6987351582 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7778357DF4FD38AE0B964 /* Theme.swift */; };
+		A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */; };
+		C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */; };
+		FE4F14C42F7EC13E005133D5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C32F7EC13E005133D5 /* RevenueCat */; };
+		FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C52F7EC13E005133D5 /* RevenueCatUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		102F5DCB00E34E0DBA64D332 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
+		43D7778357DF4FD38AE0B964 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		6E9C6BABAA974D8DB497E967 /* BloomJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloomJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		82FBF08504C4447AB3D4563F /* VisionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDetailView.swift; sourceTree = "<group>"; };
+		85EBF776A06B411590BE6DF3 /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
+		93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionStore.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		B45E08515F714B87A083AA75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
+		FE21529BC6424F08896B8CD5 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF0CECCDFD7F4A579B31986D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */,
+				FE4F14C42F7EC13E005133D5 /* RevenueCat in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C03C6D2BAEF479481AC13CC /* BloomJournal */ = {
+			isa = PBXGroup;
+			children = (
+				EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */,
+				43D7778357DF4FD38AE0B964 /* Theme.swift */,
+				9279184B6048490B8427E59C /* Models */,
+				D3346E92AEDE4C69B364A6FB /* Views */,
+				B45E08515F714B87A083AA75 /* Assets.xcassets */,
+				7F10961EEB7745B590D6C7F3 /* Preview Content */,
+			);
+			path = BloomJournal;
+			sourceTree = "<group>";
+		};
+		7F10961EEB7745B590D6C7F3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9279184B6048490B8427E59C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				102F5DCB00E34E0DBA64D332 /* Vision.swift */,
+				93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */,
+				B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B53203463BB041368D7CB19E = {
+			isa = PBXGroup;
+			children = (
+				1C03C6D2BAEF479481AC13CC /* BloomJournal */,
+				E86A1DFA44E845C89522A423 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D3346E92AEDE4C69B364A6FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E0FAE4D6DD9A4753B3186068 /* HomeView.swift */,
+				FE21529BC6424F08896B8CD5 /* JournalingView.swift */,
+				85EBF776A06B411590BE6DF3 /* ReleaseView.swift */,
+				82FBF08504C4447AB3D4563F /* VisionDetailView.swift */,
+				D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E86A1DFA44E845C89522A423 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E9C6BABAA974D8DB497E967 /* BloomJournal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3536BC85FE54A049E7A1991 /* BloomJournal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09834B2DCD5D46E296D2E83D /* Build configuration list for PBXNativeTarget "BloomJournal" */;
+			buildPhases = (
+				C11B83DCF53E4DEDB448F14C /* Sources */,
+				BF0CECCDFD7F4A579B31986D /* Frameworks */,
+				C2DF9B48B9F54DAB8DBE93E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BloomJournal;
+			packageProductDependencies = (
+				FE4F14C32F7EC13E005133D5 /* RevenueCat */,
+				FE4F14C52F7EC13E005133D5 /* RevenueCatUI */,
+			);
+			productName = BloomJournal;
+			productReference = 6E9C6BABAA974D8DB497E967 /* BloomJournal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1E322CC77024BD08E98E113 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					C3536BC85FE54A049E7A1991 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = D027B7268E964EADB0B282BD /* Build configuration list for PBXProject "BloomJournal" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ja;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ja,
+				Base,
+			);
+			mainGroup = B53203463BB041368D7CB19E;
+			packageReferences = (
+				FE4F14C22F7EC13E005133D5 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+			);
+			productRefGroup = E86A1DFA44E845C89522A423 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3536BC85FE54A049E7A1991 /* BloomJournal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2DF9B48B9F54DAB8DBE93E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */,
+				27F3A1342C1443C99D5C33C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C11B83DCF53E4DEDB448F14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */,
+				42E20213CF4B4D74BA6F50C8 /* Vision.swift in Sources */,
+				4E5B3BC69A2F4D6A90237651 /* VisionStore.swift in Sources */,
+				8BC82AF8099D4B6987351582 /* Theme.swift in Sources */,
+				2BBC4E5CED5443FBB80A088E /* HomeView.swift in Sources */,
+				87E5D301AACC44C2B6C551D6 /* JournalingView.swift in Sources */,
+				85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */,
+				0D9470BE2BE74AEB8B71841A /* VisionDetailView.swift in Sources */,
+				A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */,
+				C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		026B921DEDC64B5A98C02D99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BloomJournal/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		108EC6AE42E64A56A502D57F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13D9D242AB2141989ACD7C3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BloomJournal/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		14BDE20B3AA6400B8A4F8B83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09834B2DCD5D46E296D2E83D /* Build configuration list for PBXNativeTarget "BloomJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13D9D242AB2141989ACD7C3C /* Debug */,
+				026B921DEDC64B5A98C02D99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D027B7268E964EADB0B282BD /* Build configuration list for PBXProject "BloomJournal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14BDE20B3AA6400B8A4F8B83 /* Debug */,
+				108EC6AE42E64A56A502D57F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE4F14C22F7EC13E005133D5 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE4F14C32F7EC13E005133D5 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE4F14C22F7EC13E005133D5 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		FE4F14C52F7EC13E005133D5 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE4F14C22F7EC13E005133D5 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E1E322CC77024BD08E98E113 /* Project object */;
+}
