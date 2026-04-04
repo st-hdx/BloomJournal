@@ -36,7 +36,8 @@ struct ReleaseView: View {
             }
 
             if showComplete {
-                completeView.transition(.opacity)
+                completeView
+                    .transition(.opacity.combined(with: .scale(scale: 0.95)))
             }
         }
     }
@@ -210,6 +211,7 @@ struct ReleaseView: View {
         phase = .releasing
         textOpacity = 1
         textOffset = 0
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             withAnimation(.easeIn(duration: 1.0)) {
                 textOpacity = 0
@@ -219,6 +221,7 @@ struct ReleaseView: View {
                 withAnimation(.easeIn(duration: 0.5)) {
                     showComplete = true
                 }
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }
     }

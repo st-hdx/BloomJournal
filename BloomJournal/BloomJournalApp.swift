@@ -7,7 +7,7 @@ struct BloomJournalApp: App {
     @StateObject private var purchaseManager = PurchaseManager()
 
     init() {
-        Purchases.configure(withAPIKey: "test_vcIrINAnpgThypZrGauCpxiqKAU")
+        Purchases.configure(withAPIKey: "appl_fdvMKdthCeUHnKpudNJBWUPbPpi")
         #if DEBUG
         Purchases.logLevel = .debug
         #endif

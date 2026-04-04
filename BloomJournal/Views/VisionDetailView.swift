@@ -10,6 +10,7 @@ struct VisionDetailView: View {
     @State private var newDetail = ""
     @State private var editingDetailIndex: Int? = nil
     @State private var editingDetailText = ""
+    @State private var showEditDetail = false
     @State private var showDeleteVisionConfirm = false
     @FocusState private var isTitleFocused: Bool
 
@@ -43,18 +44,49 @@ struct VisionDetailView: View {
                 .padding(.top, 16)
                 .padding(.bottom, 16)
 
-                Divider().overlay(Theme.cardBorder)
+                LinearGradient(
+                    colors: [Theme.accent1.opacity(0.3), Theme.accent2.opacity(0.3)],
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+                .frame(height: 1)
 
                 if currentVision.details.isEmpty {
                     Spacer()
-                    VStack(spacing: 12) {
-                        Image(systemName: "square.and.pencil")
-                            .font(.system(size: 36))
-                            .foregroundColor(Theme.tertiaryText)
-                        Text("詳細をまだ追加していません")
-                            .font(.system(.body, design: .rounded))
-                            .foregroundColor(Theme.tertiaryText)
+                    VStack(spacing: 20) {
+                        Image(systemName: "sparkles")
+                            .font(.system(size: 44))
+                            .foregroundStyle(Theme.accentGradient)
+
+                        VStack(spacing: 8) {
+                            Text("まだ詳細がありません")
+                                .font(.system(.headline, design: .rounded).weight(.semibold))
+                                .foregroundColor(Theme.text)
+                            Text("ジャーナリングで気づいたこと、\n具体的なイメージを追記しよう")
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundColor(Theme.secondaryText)
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(3)
+                        }
+
+                        Button {
+                            showAddDetail = true
+                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                        } label: {
+                            HStack(spacing: 6) {
+                                Image(systemName: "plus.circle.fill")
+                                Text("最初の詳細を追記する")
+                            }
+                            .font(.system(.body, design: .rounded).weight(.semibold))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 14)
+                            .background(Theme.accentGradient)
+                            .clipShape(Capsule())
+                            .shadow(color: Theme.accent1.opacity(0.3), radius: 8, y: 3)
+                        }
                     }
+                    .padding(.horizontal, 32)
                     Spacer()
                 } else {
                     List {
@@ -62,19 +94,28 @@ struct VisionDetailView: View {
                             Button {
                                 editingDetailIndex = index
                                 editingDetailText = detail
+                                showEditDetail = true
+                                UIImpactFeedbackGenerator(style: .light).impactOccurred()
                             } label: {
                                 HStack(alignment: .top, spacing: 12) {
-                                    Circle()
-                                        .fill(Theme.accentGradient)
-                                        .frame(width: 6, height: 6)
-                                        .padding(.top, 7)
+                                    LinearGradient(
+                                        colors: [Theme.accent1, Theme.accent2],
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                    .frame(width: 3)
+                                    .clipShape(Capsule())
+                                    .frame(height: 18)
+                                    .padding(.top, 2)
+
                                     Text(detail)
                                         .font(.system(.body, design: .rounded))
                                         .foregroundColor(Theme.text)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
-                                .padding(.vertical, 4)
+                                .padding(.vertical, 6)
                             }
+                            .listRowSeparator(.hidden)
                         }
                         .onDelete { offsets in
                             store.deleteDetail(at: offsets, for: vision)
@@ -82,30 +123,32 @@ struct VisionDetailView: View {
                         .onMove { source, destination in
                             store.moveDetail(from: source, to: destination, for: vision)
                         }
-                        .listRowBackground(Theme.card)
+                        .listRowBackground(Theme.background)
                     }
                     .listStyle(.plain)
                     .background(Theme.background)
                     .scrollContentBackground(.hidden)
                 }
 
-                Button {
-                    showAddDetail = true
-                } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "plus.circle.fill")
-                        Text("追記する")
+                if !currentVision.details.isEmpty {
+                    Button {
+                        showAddDetail = true
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "plus.circle.fill")
+                            Text("追記する")
+                        }
+                        .font(.system(.body, design: .rounded).weight(.semibold))
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 18)
+                        .background(Theme.accentGradient)
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .shadow(color: Theme.accent1.opacity(0.35), radius: 10, y: 4)
                     }
-                    .font(.system(.body, design: .rounded).weight(.semibold))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 18)
-                    .background(Theme.accentGradient)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .shadow(color: Theme.accent1.opacity(0.35), radius: 10, y: 4)
+                    .padding(.horizontal, 24)
+                    .padding(.bottom, 40)
                 }
-                .padding(.horizontal, 24)
-                .padding(.bottom, 40)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -125,29 +168,33 @@ struct VisionDetailView: View {
                 }
             }
         }
-        .alert("詳細を追記", isPresented: $showAddDetail) {
-            TextField("ベンツのGLB、駐車場...", text: $newDetail)
-            Button("追加") {
+        .sheet(isPresented: $showAddDetail, onDismiss: { newDetail = "" }) {
+            TextInputSheet(
+                title: "詳細を追記",
+                placeholder: "ベンツのGLB、駐車場...",
+                text: $newDetail,
+                buttonLabel: "追記する"
+            ) {
                 let trimmed = newDetail.trimmingCharacters(in: .whitespaces)
                 guard !trimmed.isEmpty else { return }
                 store.addDetail(trimmed, to: vision)
                 newDetail = ""
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
-            Button("キャンセル", role: .cancel) { newDetail = "" }
         }
-        .alert("詳細を編集", isPresented: Binding(
-            get: { editingDetailIndex != nil },
-            set: { if !$0 { editingDetailIndex = nil } }
-        )) {
-            TextField("内容", text: $editingDetailText)
-            Button("保存") {
+        .sheet(isPresented: $showEditDetail, onDismiss: { editingDetailIndex = nil }) {
+            TextInputSheet(
+                title: "詳細を編集",
+                placeholder: "内容",
+                text: $editingDetailText,
+                buttonLabel: "保存する"
+            ) {
                 let trimmed = editingDetailText.trimmingCharacters(in: .whitespaces)
                 if !trimmed.isEmpty, let idx = editingDetailIndex {
                     store.updateDetail(at: idx, with: trimmed, for: vision)
                 }
                 editingDetailIndex = nil
             }
-            Button("キャンセル", role: .cancel) { editingDetailIndex = nil }
         }
         .alert("ビジョンを削除しますか？", isPresented: $showDeleteVisionConfirm) {
             Button("削除", role: .destructive) {

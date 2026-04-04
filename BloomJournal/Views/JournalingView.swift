@@ -193,7 +193,15 @@ struct ScrollingVisionBanner: View {
                     .foregroundColor(Theme.secondaryText)
                     .fixedSize()
                     .background(GeometryReader { g in
-                        Color.clear.onAppear { contentWidth = g.size.width }
+                        Color.clear.onAppear {
+                            let w = g.size.width
+                            guard w > 0 else { return }
+                            if contentWidth != w {
+                                contentWidth = w  // onChange が startAnimation を呼ぶ
+                            } else {
+                                startAnimation(width: w)  // 同値なら onChange は発火しないので直接呼ぶ
+                            }
+                        }
                     })
                     .offset(x: offset)
 
@@ -205,12 +213,16 @@ struct ScrollingVisionBanner: View {
             }
             .onChange(of: contentWidth) { width in
                 guard width > 0 else { return }
-                offset = 0
-                withAnimation(.linear(duration: Double(width) / 40).repeatForever(autoreverses: false)) {
-                    offset = -width
-                }
+                startAnimation(width: width)
             }
         }
         .clipped()
+    }
+
+    private func startAnimation(width: CGFloat) {
+        offset = 0
+        withAnimation(.linear(duration: Double(width) / 40).repeatForever(autoreverses: false)) {
+            offset = -width
+        }
     }
 }

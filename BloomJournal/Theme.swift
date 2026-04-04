@@ -41,3 +41,70 @@ extension View {
         self.modifier(Theme.cardStyle())
     }
 }
+
+// MARK: - TextInputSheet
+
+struct TextInputSheet: View {
+    let title: String
+    let placeholder: String
+    @Binding var text: String
+    let buttonLabel: String
+    let onConfirm: () -> Void
+
+    @Environment(\.dismiss) private var dismiss
+    @FocusState private var isFocused: Bool
+
+    private var trimmed: String { text.trimmingCharacters(in: .whitespaces) }
+
+    var body: some View {
+        ZStack {
+            Theme.background.ignoresSafeArea()
+
+            VStack(alignment: .leading, spacing: 20) {
+                Text(title)
+                    .font(.system(.headline, design: .rounded).weight(.bold))
+                    .foregroundColor(Theme.text)
+
+                TextField(placeholder, text: $text)
+                    .font(.system(.body, design: .rounded))
+                    .foregroundColor(Theme.text)
+                    .focused($isFocused)
+                    .submitLabel(.done)
+                    .onSubmit { submit() }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 14)
+                    .cardStyle()
+
+                Button(action: submit) {
+                    Text(buttonLabel)
+                        .font(.system(.body, design: .rounded).weight(.semibold))
+                        .foregroundColor(trimmed.isEmpty ? Theme.secondaryText : .white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 18)
+                        .background(
+                            trimmed.isEmpty
+                            ? AnyShapeStyle(Theme.ringBg)
+                            : AnyShapeStyle(Theme.accentGradient)
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                        .shadow(color: trimmed.isEmpty ? .clear : Theme.accent1.opacity(0.3), radius: 8, y: 3)
+                }
+                .disabled(trimmed.isEmpty)
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 28)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        }
+        .presentationDetents([.height(260)])
+        .presentationDragIndicator(.visible)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) { isFocused = true }
+        }
+    }
+
+    private func submit() {
+        guard !trimmed.isEmpty else { return }
+        onConfirm()
+        dismiss()
+    }
+}

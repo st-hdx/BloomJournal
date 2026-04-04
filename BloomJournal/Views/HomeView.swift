@@ -3,23 +3,53 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var store: VisionStore
     @EnvironmentObject private var purchaseManager: PurchaseManager
+    @ObservedObject private var notificationManager = NotificationManager.shared
     @State private var showJournaling = false
     @State private var showAddVision = false
     @State private var newVisionTitle = ""
     @State private var isReordering = false
     @State private var showPaywall = false
+    @State private var showSettings = false
 
     var body: some View {
         NavigationStack {
             if store.visions.isEmpty {
-                OnboardingView().environmentObject(store).environmentObject(purchaseManager)
+                OnboardingView()
+                    .environmentObject(store)
+                    .environmentObject(purchaseManager)
+                    .transition(.opacity)
             } else {
                 mainView
+                    .transition(.opacity)
             }
         }
+        .animation(.easeInOut(duration: 0.5), value: store.visions.isEmpty)
         .fullScreenCover(isPresented: $showJournaling) {
             JournalingView().environmentObject(store)
         }
+    }
+
+    private static let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ja_JP")
+        f.dateFormat = "M月d日（E）"
+        return f
+    }()
+
+    private var todayDateString: String {
+        Self.dateFormatter.string(from: Date())
+    }
+
+    private var todayPrompt: String {
+        let prompts = [
+            "今どんな自分をイメージしていますか？",
+            "もし全てが思い通りになったら、今日どんな一日を過ごしていますか？",
+            "ビジョンが実現した瞬間、何を感じていますか？",
+            "今のあなたに向けて、未来の自分から何を伝えますか？",
+            "すでにそれを手にしているとしたら、今日何をしますか？",
+        ]
+        let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
+        return prompts[dayOfYear % prompts.count]
     }
 
     private var mainView: some View {
@@ -36,6 +66,15 @@ struct HomeView: View {
                         Text("ビジョンを現実に引き寄せる")
                             .font(.system(.caption, design: .rounded))
                             .foregroundColor(Theme.secondaryText)
+                        HStack(spacing: 4) {
+                            Image(systemName: "calendar")
+                                .font(.system(size: 10))
+                                .foregroundColor(Theme.tertiaryText)
+                            Text(todayDateString)
+                                .font(.system(.caption2, design: .rounded))
+                                .foregroundColor(Theme.tertiaryText)
+                        }
+                        .padding(.top, 2)
                         #if DEBUG
                         Button {
                             purchaseManager.toggleProForDebug()
@@ -63,6 +102,16 @@ struct HomeView: View {
                         }
                     } else {
                         HStack(spacing: 10) {
+                            Button { showSettings = true } label: {
+                                Image(systemName: "gearshape")
+                                    .font(.system(.body, design: .rounded).weight(.semibold))
+                                    .foregroundColor(Theme.text)
+                                    .frame(width: 38, height: 38)
+                                    .background(Theme.card)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
+                                    .shadow(color: Theme.cardShadow.opacity(0.08), radius: 4, y: 2)
+                            }
                             Button {
                                 withAnimation(.easeInOut(duration: 0.2)) { isReordering = true }
                             } label: {
@@ -129,10 +178,15 @@ struct HomeView: View {
                                     VisionCard(vision: vision)
                                 }
                                 .buttonStyle(.plain)
+                                .transition(.asymmetric(
+                                    insertion: .move(edge: .trailing).combined(with: .opacity),
+                                    removal: .opacity
+                                ))
                             }
                         }
                         .padding(.horizontal, 20)
                         .padding(.bottom, 16)
+                        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: store.visions.count)
                     }
                 }
 
@@ -140,19 +194,34 @@ struct HomeView: View {
 
                 // Journaling section
                 VStack(spacing: 0) {
-                    Divider()
-                        .background(Theme.cardBorder)
-                        .padding(.bottom, 20)
+                    // グラデーション区切り線
+                    LinearGradient(
+                        colors: [Theme.accent1.opacity(0.3), Theme.accent2.opacity(0.3)],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                    .frame(height: 1)
+                    .padding(.horizontal, 32)
+                    .padding(.bottom, 20)
 
+                    // 今日のお題ティーザー
                     VStack(spacing: 6) {
-                        Text("浮かんだイメージや気づきを書き出して")
-                            .font(.system(.subheadline, design: .rounded).weight(.medium))
+                        HStack(spacing: 5) {
+                            Image(systemName: "sparkles")
+                                .font(.system(size: 11, weight: .semibold))
+                                .foregroundStyle(Theme.accentGradient)
+                            Text("今日のお題")
+                                .font(.system(.caption2, design: .rounded).weight(.bold))
+                                .foregroundColor(Theme.accent1)
+                        }
+                        Text(todayPrompt)
+                            .font(.system(.subheadline, design: .rounded))
                             .foregroundColor(Theme.text)
-                        Text("ビジョンの実現に近づけよう")
-                            .font(.system(.subheadline, design: .rounded).weight(.medium))
-                            .foregroundColor(Theme.text)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(2)
+                            .padding(.horizontal, 12)
                     }
-                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 24)
                     .padding(.bottom, 16)
 
                     Button {
@@ -160,7 +229,7 @@ struct HomeView: View {
                     } label: {
                         HStack(spacing: 8) {
                             Image(systemName: "pencil.line")
-                            Text("イメージを書き出す")
+                            Text("今日のイメージを書き出す")
                                 .fontWeight(.semibold)
                         }
                         .font(.system(.body, design: .rounded))
@@ -172,6 +241,11 @@ struct HomeView: View {
                         .shadow(color: Theme.accent1.opacity(0.35), radius: 10, y: 4)
                     }
                     .padding(.horizontal, 24)
+
+                    Text("書き出すことで現実が動き始める")
+                        .font(.system(.caption2, design: .rounded))
+                        .foregroundColor(Theme.tertiaryText)
+                        .padding(.top, 10)
                 }
                 .padding(.bottom, 40)
             }
@@ -179,15 +253,22 @@ struct HomeView: View {
         .sheet(isPresented: $showPaywall) {
             PaywallView().environmentObject(purchaseManager)
         }
-        .alert("ビジョンを追加", isPresented: $showAddVision) {
-            TextField("副業を成功させるぞ", text: $newVisionTitle)
-            Button("追加") {
+        .sheet(isPresented: $showSettings) {
+            NotificationSettingsView(manager: notificationManager)
+        }
+        .sheet(isPresented: $showAddVision, onDismiss: { newVisionTitle = "" }) {
+            TextInputSheet(
+                title: "ビジョンを追加",
+                placeholder: "副業を成功させるぞ",
+                text: $newVisionTitle,
+                buttonLabel: "追加する"
+            ) {
                 let trimmed = newVisionTitle.trimmingCharacters(in: .whitespaces)
                 guard !trimmed.isEmpty else { return }
                 store.add(title: trimmed)
                 newVisionTitle = ""
+                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
             }
-            Button("キャンセル", role: .cancel) { newVisionTitle = "" }
         }
     }
 }
@@ -398,12 +479,14 @@ struct OnboardingView: View {
         }
         addedVisions.append(trimmed)
         inputText = ""
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
 
     private func saveAndFinish() {
         let trimmed = inputText.trimmingCharacters(in: .whitespaces)
         if !trimmed.isEmpty && !atLimit { addedVisions.append(trimmed) }
         step = .done
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             for title in addedVisions { store.add(title: title) }
         }
@@ -416,36 +499,56 @@ struct VisionCard: View {
     let vision: Vision
 
     var body: some View {
-        HStack(alignment: .top, spacing: 14) {
-            Circle()
-                .fill(Theme.accentGradient)
-                .frame(width: 7, height: 7)
-                .padding(.top, 7)
+        HStack(spacing: 0) {
+            // 左グラデーションアクセントバー
+            LinearGradient(
+                colors: [Theme.accent1, Theme.accent2],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .frame(width: 4)
+            .padding(.vertical, 10)
+            .clipShape(Capsule())
+            .padding(.leading, 14)
+            .padding(.trailing, 12)
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(vision.title)
                     .font(.system(.body, design: .rounded).weight(.medium))
                     .foregroundColor(Theme.text)
                 if !vision.details.isEmpty {
-                    Text("└ \(vision.details.last!)")
+                    Text(vision.details.last!)
                         .font(.system(.caption, design: .rounded))
                         .foregroundColor(Theme.secondaryText)
                         .lineLimit(1)
                 }
             }
+
             Spacer()
-            if !vision.details.isEmpty {
-                Text("\(vision.details.count)")
-                    .font(.system(.caption2, design: .rounded).weight(.semibold))
-                    .foregroundColor(Theme.secondaryText)
+
+            HStack(spacing: 8) {
+                if !vision.details.isEmpty {
+                    HStack(spacing: 3) {
+                        Image(systemName: "note.text")
+                            .font(.system(size: 9, weight: .medium))
+                        Text("\(vision.details.count)")
+                            .font(.system(.caption2, design: .rounded).weight(.semibold))
+                    }
+                    .foregroundColor(Theme.accent1)
                     .padding(.horizontal, 7)
                     .padding(.vertical, 3)
-                    .background(Theme.ringBg)
+                    .background(Theme.accent1.opacity(0.12))
                     .clipShape(Capsule())
+                }
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .semibold))
+                    .foregroundColor(Theme.tertiaryText)
             }
+            .padding(.trailing, 16)
         }
-        .padding(.horizontal, 18)
         .padding(.vertical, 16)
         .cardStyle()
+        .contentShape(Rectangle())
     }
 }
