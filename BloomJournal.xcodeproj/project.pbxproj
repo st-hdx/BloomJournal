@@ -14,21 +14,23 @@
 		4E5B3BC69A2F4D6A90237651 /* VisionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */; };
 		598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */; };
 		6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */; };
+		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
 		85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF776A06B411590BE6DF3 /* ReleaseView.swift */; };
 		87E5D301AACC44C2B6C551D6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21529BC6424F08896B8CD5 /* JournalingView.swift */; };
 		8BC82AF8099D4B6987351582 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7778357DF4FD38AE0B964 /* Theme.swift */; };
+		99A48146AABCC4861E1FE159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3490DE540C9CC5738DFFF6 /* Localizable.strings */; };
 		A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */; };
+		A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 866A2F35C8C6B698C8F21120 /* InfoPlist.strings */; };
 		AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */; };
 		C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */; };
-		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
-		99A48146AABCC4861E1FE159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3490DE540C9CC5738DFFF6 /* Localizable.strings */; };
-		A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 866A2F35C8C6B698C8F21120 /* InfoPlist.strings */; };
 		FE4F14C42F7EC13E005133D5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C32F7EC13E005133D5 /* RevenueCat */; };
 		FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C52F7EC13E005133D5 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		102F5DCB00E34E0DBA64D332 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
+		32E2A2F00909294776E815C9 /* LocalizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedContent.swift; sourceTree = "<group>"; };
+		3BBA5C2F41494853665E9F79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43D7778357DF4FD38AE0B964 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6E9C6BABAA974D8DB497E967 /* BloomJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloomJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -36,16 +38,14 @@
 		85EBF776A06B411590BE6DF3 /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
 		93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionStore.swift; sourceTree = "<group>"; };
 		B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
-		BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B45E08515F714B87A083AA75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C7CD607E91606DE20308E3BE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
-		FE21529BC6424F08896B8CD5 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
-		32E2A2F00909294776E815C9 /* LocalizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedContent.swift; sourceTree = "<group>"; };
 		F29D9C23BFB7BCC771BAA86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C7CD607E91606DE20308E3BE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3BBA5C2F41494853665E9F79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FE21529BC6424F08896B8CD5 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +250,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BloomJournal/Preview Content\"";
+				DEVELOPMENT_TEAM = Y5RBKYD4FY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSUserNotificationsUsageDescription = "毎日のジャーナリングをお知らせするために通知を使用します";
@@ -332,6 +333,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"BloomJournal/Preview Content\"";
+				DEVELOPMENT_TEAM = Y5RBKYD4FY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSUserNotificationsUsageDescription = "毎日のジャーナリングをお知らせするために通知を使用します";
