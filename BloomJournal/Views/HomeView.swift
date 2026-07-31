@@ -31,8 +31,8 @@ struct HomeView: View {
 
     private static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
-        f.locale = Locale(identifier: "ja_JP")
-        f.dateFormat = "M月d日（E）"
+        f.locale = Locale.autoupdatingCurrent
+        f.setLocalizedDateFormatFromTemplate(LocalizedContent.isJapanese ? "MdE" : "MMMdEEE")
         return f
     }()
 
@@ -41,13 +41,7 @@ struct HomeView: View {
     }
 
     private var todayPrompt: String {
-        let prompts = [
-            "今どんな自分をイメージしていますか？",
-            "もし全てが思い通りになったら、今日どんな一日を過ごしていますか？",
-            "ビジョンが実現した瞬間、何を感じていますか？",
-            "今のあなたに向けて、未来の自分から何を伝えますか？",
-            "すでにそれを手にしているとしたら、今日何をしますか？",
-        ]
+        let prompts = LocalizedContent.writingPrompts
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
         return prompts[dayOfYear % prompts.count]
     }
@@ -255,6 +249,7 @@ struct HomeView: View {
         }
         .sheet(isPresented: $showSettings) {
             NotificationSettingsView(manager: notificationManager)
+                .environmentObject(purchaseManager)
         }
         .sheet(isPresented: $showAddVision, onDismiss: { newVisionTitle = "" }) {
             TextInputSheet(
@@ -407,7 +402,7 @@ struct OnboardingView: View {
                 .padding(.horizontal, 24)
 
                 if atLimit {
-                    Text("無料版はビジョン\(PurchaseManager.freeVisionLimit)件まで。Proにアップグレードすると無制限に追加できます。")
+                    Text(String(format: NSLocalizedString("free_limit_message", comment: "Shown when the user hits the free vision limit"), PurchaseManager.freeVisionLimit))
                         .font(.system(.caption, design: .rounded))
                         .foregroundColor(Theme.secondaryText)
                         .multilineTextAlignment(.center)

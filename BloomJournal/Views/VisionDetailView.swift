@@ -18,6 +18,17 @@ struct VisionDetailView: View {
         store.visions.first(where: { $0.id == vision.id }) ?? vision
     }
 
+    private var shareText: String {
+        var lines = ["✨ \(currentVision.title)"]
+        if !currentVision.details.isEmpty {
+            lines.append("")
+            lines.append(contentsOf: currentVision.details.map { "・\($0)" })
+        }
+        lines.append("")
+        lines.append(NSLocalizedString("share_footer", comment: "Appended to shared vision text"))
+        return lines.joined(separator: "\n")
+    }
+
     var body: some View {
         ZStack {
             Theme.background.ignoresSafeArea()
@@ -156,6 +167,10 @@ struct VisionDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 HStack(spacing: 14) {
+                    ShareLink(item: shareText) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(Theme.text)
+                    }
                     EditButton()
                         .font(.system(.body, design: .rounded))
                         .foregroundColor(Theme.text)
@@ -203,7 +218,7 @@ struct VisionDetailView: View {
             }
             Button("キャンセル", role: .cancel) {}
         } message: {
-            Text("「\(currentVision.title)」と追記した内容がすべて削除されます")
+            Text(String(format: NSLocalizedString("delete_vision_confirm_message", comment: "Confirmation message before deleting a vision"), currentVision.title))
         }
         .onAppear {
             if focusOnAppear {

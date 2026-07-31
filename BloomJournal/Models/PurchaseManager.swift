@@ -4,6 +4,7 @@ import RevenueCat
 
 class PurchaseManager: ObservableObject {
     @Published private(set) var isPro: Bool = false
+    @Published private(set) var priceString: String?
 
     static let freeVisionLimit = 2
     static let entitlementID = "Bloom Journal Pro"
@@ -15,6 +16,15 @@ class PurchaseManager: ObservableObject {
                 self?.updateProStatus(from: customerInfo)
             }
         }
+        Task { @MainActor [weak self] in
+            await self?.loadPrice()
+        }
+    }
+
+    @MainActor
+    private func loadPrice() async {
+        let products = await Purchases.shared.products([Self.productID])
+        priceString = products.first?.localizedPriceString
     }
 
     @MainActor
@@ -57,8 +67,8 @@ enum PurchaseError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .productNotFound: return "商品が見つかりませんでした。"
-        case .notEntitled: return "購入が確認できませんでした。"
+        case .productNotFound: return NSLocalizedString("error_product_not_found", comment: "Purchase error: product not found")
+        case .notEntitled: return NSLocalizedString("error_not_entitled", comment: "Purchase error: entitlement not confirmed")
         }
     }
 }

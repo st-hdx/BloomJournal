@@ -43,7 +43,7 @@ class NotificationManager: ObservableObject {
 
         let content = UNMutableNotificationContent()
         content.title = "Bloom Journal"
-        content.body = "今日のビジョンをイメージして書き出そう ✨"
+        content.body = NSLocalizedString("daily_reminder_body", comment: "Daily reminder notification body")
         content.sound = .default
 
         var components = DateComponents()
@@ -65,6 +65,8 @@ class NotificationManager: ObservableObject {
 
 struct NotificationSettingsView: View {
     @ObservedObject var manager: NotificationManager
+    @EnvironmentObject private var purchaseManager: PurchaseManager
+    @State private var showPaywall = false
 
     private var reminderTime: Binding<Date> {
         Binding(
@@ -138,13 +140,49 @@ struct NotificationSettingsView: View {
                 .cardStyle()
                 .animation(.easeInOut(duration: 0.2), value: manager.isEnabled)
 
+                if !purchaseManager.isPro {
+                    Button {
+                        showPaywall = true
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "sparkles")
+                                .font(.system(.body))
+                                .foregroundStyle(Theme.accentGradient)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Bloom Journal Pro")
+                                    .font(.system(.body, design: .rounded).weight(.semibold))
+                                    .foregroundColor(Theme.text)
+                                Text(NSLocalizedString("settings_pro_upsell_subtitle", comment: "Settings screen Pro upsell subtitle"))
+                                    .font(.system(.caption, design: .rounded))
+                                    .foregroundColor(Theme.secondaryText)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(Theme.tertiaryText)
+                        }
+                        .padding(16)
+                    }
+                    .buttonStyle(.plain)
+                    .cardStyle()
+                }
+
                 Spacer()
             }
             .padding(.horizontal, 24)
             .padding(.top, 28)
         }
-        .presentationDetents([.height(manager.isEnabled ? 300 : 190)])
+        .presentationDetents([.height(presentationHeight)])
         .presentationDragIndicator(.visible)
         .animation(.easeInOut(duration: 0.2), value: manager.isEnabled)
+        .sheet(isPresented: $showPaywall) {
+            PaywallView().environmentObject(purchaseManager)
+        }
+    }
+
+    private var presentationHeight: CGFloat {
+        var height: CGFloat = manager.isEnabled ? 300 : 190
+        if !purchaseManager.isPro { height += 90 }
+        return height
     }
 }

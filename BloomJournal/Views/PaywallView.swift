@@ -8,6 +8,13 @@ struct PaywallView: View {
     @State private var isRestoring = false
     @State private var errorMessage: String?
 
+    private var upgradeButtonTitle: String {
+        guard let price = purchaseManager.priceString else {
+            return NSLocalizedString("アップグレードする", comment: "Upgrade button, price unknown yet")
+        }
+        return String(format: NSLocalizedString("upgrade_button_with_price", comment: "Upgrade button with price"), price)
+    }
+
     var body: some View {
         ZStack {
             Theme.background.ignoresSafeArea()
@@ -59,7 +66,7 @@ struct PaywallView: View {
                             if isPurchasing {
                                 ProgressView().tint(.white)
                             } else {
-                                Text("アップグレードする")
+                                Text(upgradeButtonTitle)
                                     .font(.system(.body, design: .rounded).weight(.semibold))
                                     .foregroundColor(.white)
                             }
@@ -118,7 +125,7 @@ struct PaywallView: View {
             try await purchaseManager.purchase()
             dismiss()
         } catch {
-            errorMessage = "購入に失敗しました。もう一度お試しください。"
+            errorMessage = NSLocalizedString("purchase_failed_message", comment: "Shown when a purchase attempt fails")
         }
         isPurchasing = false
     }
@@ -130,7 +137,7 @@ struct PaywallView: View {
             try await purchaseManager.restore()
             dismiss()
         } catch {
-            errorMessage = "復元に失敗しました。もう一度お試しください。"
+            errorMessage = NSLocalizedString("restore_failed_message", comment: "Shown when restoring purchases fails")
         }
         isRestoring = false
     }

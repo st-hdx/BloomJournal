@@ -1,33 +1,5 @@
 import SwiftUI
 
-private let writingPrompts = [
-    "今どんな自分をイメージしていますか？",
-    "もし全てが思い通りになったら、今日どんな一日を過ごしていますか？",
-    "ビジョンが実現した瞬間、何を感じていますか？",
-    "今のあなたに向けて、未来の自分から何を伝えますか？",
-    "すでにそれを手にしているとしたら、今日何をしますか？",
-]
-
-private struct Quote {
-    let text: String
-    let author: String
-}
-
-private let quotes: [Quote] = [
-    Quote(text: "今日が人生最後の日だとしたら、今日やろうとしていることをやりたいか？", author: "スティーブ・ジョブズ"),
-    Quote(text: "想像できることは、すべて現実になる。", author: "ジュール・ヴェルヌ"),
-    Quote(text: "夢を見ることができれば、それは実現できる。", author: "ウォルト・ディズニー"),
-    Quote(text: "未来は、今日何をするかにかかっている。", author: "マハトマ・ガンジー"),
-    Quote(text: "思考は現実化する。", author: "ナポレオン・ヒル"),
-    Quote(text: "人生でもっとも危険なのは、不可能なことが存在すると思い込むことだ。", author: "ナポレオン・ボナパルト"),
-    Quote(text: "強くイメージしたことは、脳にとって現実と区別がつかない。", author: "マクスウェル・マルツ"),
-    Quote(text: "あなたが心の中で思い描くものが、あなたの現実をつくる。", author: "ウェイン・ダイアー"),
-    Quote(text: "毎朝目覚めるとき、それは再生だ。新しいことを始めよう。", author: "ダライ・ラマ"),
-    Quote(text: "成功した自分を先にイメージせよ。脳はそこへ向かって動き出す。", author: "ジョン・アサラフ"),
-    Quote(text: "あなたの潜在意識はあなたの思考に従う。良い種を蒔け。", author: "ジョセフ・マーフィー"),
-    Quote(text: "人は自分が期待した通りの人間になる。", author: "ゲーテ"),
-]
-
 struct JournalingView: View {
     @EnvironmentObject private var store: VisionStore
     @Environment(\.dismiss) private var dismiss
@@ -36,11 +8,13 @@ struct JournalingView: View {
     @FocusState private var isFocused: Bool
 
     private var prompt: String {
+        let prompts = LocalizedContent.writingPrompts
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
-        return writingPrompts[dayOfYear % writingPrompts.count]
+        return prompts[dayOfYear % prompts.count]
     }
 
-    private var quote: Quote {
+    private var quote: LocalizedContent.Quote {
+        let quotes = LocalizedContent.quotes
         let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
         return quotes[dayOfYear % quotes.count]
     }
@@ -65,7 +39,7 @@ struct JournalingView: View {
                         .padding(.bottom, 14)
 
                     VStack(spacing: 4) {
-                        Text("「\(quote.text)」")
+                        Text(LocalizedContent.quoted(quote.text))
                             .font(.system(.caption, design: .rounded).italic())
                             .foregroundColor(Theme.tertiaryText)
                             .multilineTextAlignment(.center)

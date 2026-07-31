@@ -1,0 +1,81 @@
+/* JournalingView */
+"思い浮かんだことを自由に書き出そう\n正しく書こうとしなくていい" = "Write down whatever comes to mind.\nThere's no need to get it right.";
+"書き終わったら完了を押してください" = "Tap Done when you're finished.";
+"完了" = "Done";
+
+/* NotificationManager */
+"リマインダー設定" = "Reminder Settings";
+"毎日のリマインダー" = "Daily Reminder";
+"指定した時刻に通知でお知らせします" = "We'll notify you at the time you choose.";
+"settings_pro_upsell_subtitle" = "Add unlimited visions";
+"daily_reminder_body" = "Imagine today's vision and write it down ✨";
+
+/* PaywallView */
+"すべてのビジョンを\n解き放とう" = "Unlock every\nvision";
+"無料版はビジョン2件まで。\nProにアップグレードして制限なく引き寄せよう。" = "The free plan is limited to 2 visions.\nUpgrade to Pro to manifest without limits.";
+"ビジョンを無制限に追加" = "Add unlimited visions";
+"毎日のジャーナリングで加速" = "Accelerate with daily journaling";
+"追記で現実との距離を縮める" = "Close the gap to reality with every entry";
+"アップグレードする" = "Upgrade";
+"upgrade_button_with_price" = "Upgrade — %@";
+"購入を復元する" = "Restore Purchases";
+"purchase_failed_message" = "Purchase failed. Please try again.";
+"restore_failed_message" = "Restore failed. Please try again.";
+
+/* HomeView */
+"ビジョンを現実に引き寄せる" = "Manifest your vision into reality";
+"引き寄せたいビジョン" = "Visions to Manifest";
+"今日のお題" = "Today's Prompt";
+"今日のイメージを書き出す" = "Write today's vision";
+"書き出すことで現実が動き始める" = "Writing it down sets reality in motion";
+"ビジョンを追加" = "Add a Vision";
+"副業を成功させるぞ" = "I will succeed at my side hustle";
+"追加する" = "Add";
+"Bloom Journal へようこそ" = "Welcome to Bloom Journal";
+"ビジョンを毎日イメージして書き出すことで\n現実が加速していきます" = "Imagining and writing your vision every day\naccelerates it becoming real.";
+"はじめる" = "Get Started";
+"あなたのビジョンを教えて" = "Tell us your vision";
+"引き寄せたい未来を、言い切りで書こう" = "Write the future you want, as if it's already decided.";
+"例：車を買うぞ　・　英語ができるようになるぞ" = "e.g. I will buy a car · I will become fluent in English";
+"はじめよう" = "Let's Begin";
+"戻る" = "Back";
+"準備完了" = "All Set";
+"毎日ビジョンをイメージして書き出そう\nそれだけで現実が動き始める" = "Imagine and write your vision every day —\nthat alone sets reality in motion.";
+"free_limit_message" = "The free plan is limited to %d visions. Upgrade to Pro for unlimited.";
+
+/* ReleaseView */
+"追記したいビジョンを選んでください" = "Choose which vision to add this to";
+"意識から解き放つ" = "Release it from your mind";
+"追記して解き放つ" = "Add & release";
+"書き出すことで頭から手放し、潜在意識に委ねます" = "Writing it down lets it go from your mind and into your subconscious.";
+"ビジョンが現実に近づいている" = "Your vision is getting closer to reality";
+"書き出したことが現実を引き寄せる" = "What you write draws reality toward you";
+"ホームへ戻る" = "Back to Home";
+"もう一度書き出す" = "Write Again";
+"追記する内容" = "What to add";
+"引用する" = "Quote this";
+"気づいたこと、感じたこと、次にやること..." = "What you noticed, felt, or will do next...";
+"release_single_vision_step" = "You took a step toward \"%@\".";
+"release_multi_vision_step" = "You took a step toward %d visions.";
+"share_footer" = "Written with Bloom Journal";
+"share_progress_button" = "Share this step";
+
+/* VisionDetailView */
+"ビジョン名" = "Vision Name";
+"まだ詳細がありません" = "No details yet";
+"ジャーナリングで気づいたこと、\n具体的なイメージを追記しよう" = "Add what you notice while journaling —\nmake your vision more specific.";
+"最初の詳細を追記する" = "Add your first detail";
+"追記する" = "Add";
+"詳細を追記" = "Add Detail";
+"ベンツのGLB、駐車場..." = "Mercedes GLB, garage...";
+"内容" = "Content";
+"詳細を編集" = "Edit Detail";
+"保存する" = "Save";
+"ビジョンを削除しますか？" = "Delete this vision?";
+"削除" = "Delete";
+"キャンセル" = "Cancel";
+"delete_vision_confirm_message" = "All notes added to \"%@\" will be deleted.";
+
+/* PurchaseManager */
+"error_product_not_found" = "Couldn't find the product.";
+"error_not_entitled" = "Couldn't confirm the purchase.";

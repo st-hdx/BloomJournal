@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 struct ReleaseView: View {
     @EnvironmentObject private var store: VisionStore
@@ -14,6 +15,18 @@ struct ReleaseView: View {
     @State private var showComplete = false
 
     enum Phase { case selectVision, releasing }
+
+    private var completionShareText: String {
+        let message: String
+        if appendedVisions.count == 1 {
+            message = String(format: NSLocalizedString("release_single_vision_step", comment: ""), appendedVisions[0].title)
+        } else if appendedVisions.count > 1 {
+            message = String(format: NSLocalizedString("release_multi_vision_step", comment: ""), appendedVisions.count)
+        } else {
+            message = NSLocalizedString("書き出したことが現実を引き寄せる", comment: "")
+        }
+        return "✨ \(message) #BloomJournal"
+    }
 
     private var appendedVisions: [Vision] {
         store.visions.filter { v in
@@ -154,12 +167,12 @@ struct ReleaseView: View {
                         .multilineTextAlignment(.center)
 
                     if appendedVisions.count == 1 {
-                        Text("「\(appendedVisions[0].title)」への一歩を刻んだ")
+                        Text(String(format: NSLocalizedString("release_single_vision_step", comment: "Shown after journaling toward one vision"), appendedVisions[0].title))
                             .font(.system(.subheadline, design: .rounded))
                             .foregroundColor(Theme.secondaryText)
                             .multilineTextAlignment(.center)
                     } else if appendedVisions.count > 1 {
-                        Text("\(appendedVisions.count)つのビジョンへの一歩を刻んだ")
+                        Text(String(format: NSLocalizedString("release_multi_vision_step", comment: "Shown after journaling toward multiple visions"), appendedVisions.count))
                             .font(.system(.subheadline, design: .rounded))
                             .foregroundColor(Theme.secondaryText)
                             .multilineTextAlignment(.center)
@@ -185,6 +198,16 @@ struct ReleaseView: View {
                         .shadow(color: Theme.accent1.opacity(0.35), radius: 10, y: 4)
                 }
                 .padding(.horizontal, 24)
+
+                ShareLink(item: completionShareText) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "square.and.arrow.up")
+                        Text(NSLocalizedString("share_progress_button", comment: "Button to share manifestation progress"))
+                    }
+                    .font(.system(.footnote, design: .rounded))
+                    .foregroundColor(Theme.secondaryText)
+                }
+
                 Button { onJournalAgain() } label: {
                     Text("もう一度書き出す")
                         .font(.system(.body, design: .rounded))
@@ -222,8 +245,23 @@ struct ReleaseView: View {
                     showComplete = true
                 }
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
+                requestReviewIfMilestoneReached()
             }
         }
+    }
+
+    /// Asks for an App Store review after a few completed release rituals, a natural
+    /// high-satisfaction moment. iOS itself throttles how often the prompt can appear.
+    private func requestReviewIfMilestoneReached() {
+        let key = "releaseCompletionCount"
+        let count = UserDefaults.standard.integer(forKey: key) + 1
+        UserDefaults.standard.set(count, forKey: key)
+
+        let milestones: Set<Int> = [3, 10, 30]
+        guard milestones.contains(count) else { return }
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
+        AppStore.requestReview(in: scene)
     }
 }
 

@@ -20,6 +20,9 @@
 		A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */; };
 		AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */; };
 		C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */; };
+		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
+		99A48146AABCC4861E1FE159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3490DE540C9CC5738DFFF6 /* Localizable.strings */; };
+		A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 866A2F35C8C6B698C8F21120 /* InfoPlist.strings */; };
 		FE4F14C42F7EC13E005133D5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C32F7EC13E005133D5 /* RevenueCat */; };
 		FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C52F7EC13E005133D5 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,10 @@
 		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
 		FE21529BC6424F08896B8CD5 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
+		32E2A2F00909294776E815C9 /* LocalizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedContent.swift; sourceTree = "<group>"; };
+		F29D9C23BFB7BCC771BAA86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C7CD607E91606DE20308E3BE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3BBA5C2F41494853665E9F79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +66,12 @@
 			children = (
 				EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */,
 				43D7778357DF4FD38AE0B964 /* Theme.swift */,
+				32E2A2F00909294776E815C9 /* LocalizedContent.swift */,
 				9279184B6048490B8427E59C /* Models */,
 				D3346E92AEDE4C69B364A6FB /* Views */,
 				B45E08515F714B87A083AA75 /* Assets.xcassets */,
+				4A3490DE540C9CC5738DFFF6 /* Localizable.strings */,
+				866A2F35C8C6B698C8F21120 /* InfoPlist.strings */,
 				7F10961EEB7745B590D6C7F3 /* Preview Content */,
 			);
 			path = BloomJournal;
@@ -159,6 +169,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				ja,
+				en,
 				Base,
 			);
 			mainGroup = B53203463BB041368D7CB19E;
@@ -181,6 +192,8 @@
 			files = (
 				598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */,
 				27F3A1342C1443C99D5C33C4 /* Assets.xcassets in Resources */,
+				99A48146AABCC4861E1FE159 /* Localizable.strings in Resources */,
+				A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,10 +215,31 @@
 				A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */,
 				AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */,
 				C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */,
+				8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A3490DE540C9CC5738DFFF6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F29D9C23BFB7BCC771BAA86A /* en */,
+				C7CD607E91606DE20308E3BE /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		866A2F35C8C6B698C8F21120 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BBA5C2F41494853665E9F79 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		026B921DEDC64B5A98C02D99 /* Release */ = {
