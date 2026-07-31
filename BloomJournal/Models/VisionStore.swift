@@ -14,6 +14,13 @@ class VisionStore: ObservableObject {
         let args = ProcessInfo.processInfo.arguments
         if args.contains("-uitestEmpty") { visions = []; return }          // Onboarding 撮影用
         if args.contains("-uitestSeed") {                                   // Home 以降の撮影用
+            if LocalizedContent.isJapanese {
+                var v1 = Vision(title: "理想のマイホーム");   v1.details = ["子供部屋が2つある間取り"]
+                var v2 = Vision(title: "年収1000万円");       v2.details = ["投資ポートフォリオを構築する"]
+                var v3 = Vision(title: "理想の体型・健康");   v3.details = ["週3回のジム通い"]
+                let v4 = Vision(title: "ハワイ旅行")
+                visions = [v1, v2, v3, v4]; return
+            }
             var v1 = Vision(title: "Buy my dream home");   v1.details = ["Big kitchen for hosting friends"]
             var v2 = Vision(title: "Reach $150k income");  v2.details = ["Build a stronger investment portfolio"]
             var v3 = Vision(title: "Get fit and healthy"); v3.details = ["Gym 3 times a week"]

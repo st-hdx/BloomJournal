@@ -15,6 +15,8 @@
 		4E5B3BC69A2F4D6A90237651 /* VisionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */; };
 		598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */; };
 		66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */; };
+		7F98B1F5996F9694E773341E /* ScreenshotTestsJA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */; };
+		3204B3886C5A5A0D40D1C4CF /* XCUIElementPolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */; };
 		6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */; };
 		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
 		85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF776A06B411590BE6DF3 /* ReleaseView.swift */; };
@@ -57,6 +59,8 @@
 		D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
+		33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTestsJA.swift; sourceTree = "<group>"; };
+		0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XCUIElementPolling.swift; sourceTree = "<group>"; };
 		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
 		F29D9C23BFB7BCC771BAA86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FD88559F5DE63CE061F947D4 /* BloomJournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloomJournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */,
+				33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */,
+				0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */,
 			);
 			name = BloomJournalUITests;
 			path = BloomJournalUITests;
@@ -282,6 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */,
+				7F98B1F5996F9694E773341E /* ScreenshotTestsJA.swift in Sources */,
+				3204B3886C5A5A0D40D1C4CF /* XCUIElementPolling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

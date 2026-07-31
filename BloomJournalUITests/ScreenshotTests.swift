@@ -76,7 +76,7 @@ final class ScreenshotTests: XCTestCase {
         settle()
         snap("04_paywall_en")
         app.buttons["paywall.close"].tap()
-        XCTAssertTrue(app.buttons["paywall.close"].waitForNonExistence(timeout: 5),
+        XCTAssertTrue(app.buttons["paywall.close"].pollUntilGone(timeout: 5),
                       "Paywall did not dismiss")
 
         // 05 Vision detail (v1 has a detail -> detail list, not empty state).
@@ -129,12 +129,12 @@ final class ScreenshotTests: XCTestCase {
     /// the sheet down by its grabber if the tap doesn't take.
     private func dismissSettings(_ app: XCUIApplication) {
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.06)).tap()
-        if app.staticTexts["Reminder Settings"].waitForNonExistence(timeout: 3) { return }
+        if app.staticTexts["Reminder Settings"].pollUntilGone(timeout: 3) { return }
 
         // Fallback: drag downward starting from the top of the sheet.
         let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62))
         let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.98))
         start.press(forDuration: 0.15, thenDragTo: end)
-        _ = app.staticTexts["Reminder Settings"].waitForNonExistence(timeout: 3)
+        _ = app.staticTexts["Reminder Settings"].pollUntilGone(timeout: 3)
     }
 }
