@@ -106,6 +106,7 @@ struct HomeView: View {
                                     .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                                     .shadow(color: Theme.cardShadow.opacity(0.08), radius: 4, y: 2)
                             }
+                            .accessibilityIdentifier("nav.settings")
                             Button {
                                 withAnimation(.easeInOut(duration: 0.2)) { isReordering = true }
                             } label: {
@@ -134,6 +135,7 @@ struct HomeView: View {
                                     .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                                     .shadow(color: Theme.cardShadow.opacity(0.08), radius: 4, y: 2)
                             }
+                            .accessibilityIdentifier("nav.addVision")
                         }
                     }
                 }

@@ -117,6 +117,7 @@ struct JournalingView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                     }
+                    .accessibilityIdentifier("journaling.close")
                     .padding(.leading, 20)
                     .padding(.top, 20)
                     Spacer()

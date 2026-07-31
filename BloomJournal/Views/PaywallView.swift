@@ -110,6 +110,7 @@ struct PaywallView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                     }
+                    .accessibilityIdentifier("paywall.close")
                     .padding(.trailing, 20)
                     .padding(.top, 20)
                 }

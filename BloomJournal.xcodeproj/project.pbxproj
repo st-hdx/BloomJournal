@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0D9470BE2BE74AEB8B71841A /* VisionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FBF08504C4447AB3D4563F /* VisionDetailView.swift */; };
+		1F5FB8468FCAFD320EC7255A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3667D62A96A69447275DF040 /* Foundation.framework */; };
 		27F3A1342C1443C99D5C33C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B45E08515F714B87A083AA75 /* Assets.xcassets */; };
 		2BBC4E5CED5443FBB80A088E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FAE4D6DD9A4753B3186068 /* HomeView.swift */; };
 		42E20213CF4B4D74BA6F50C8 /* Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102F5DCB00E34E0DBA64D332 /* Vision.swift */; };
 		4E5B3BC69A2F4D6A90237651 /* VisionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */; };
 		598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */; };
+		66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */; };
 		6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */; };
 		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
 		85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EBF776A06B411590BE6DF3 /* ReleaseView.swift */; };
@@ -27,9 +29,20 @@
 		FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C52F7EC13E005133D5 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EF9C3F511D99A005FC7422FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1E322CC77024BD08E98E113 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3536BC85FE54A049E7A1991;
+			remoteInfo = BloomJournal;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		102F5DCB00E34E0DBA64D332 /* Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vision.swift; sourceTree = "<group>"; };
 		32E2A2F00909294776E815C9 /* LocalizedContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedContent.swift; sourceTree = "<group>"; };
+		3667D62A96A69447275DF040 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS26.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3BBA5C2F41494853665E9F79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		43D7778357DF4FD38AE0B964 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		6E9C6BABAA974D8DB497E967 /* BloomJournal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloomJournal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,12 +56,22 @@
 		C7CD607E91606DE20308E3BE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
 		F29D9C23BFB7BCC771BAA86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FD88559F5DE63CE061F947D4 /* BloomJournalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BloomJournalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE21529BC6424F08896B8CD5 /* JournalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8A3203ECFEF576D8DFFDAD47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5FB8468FCAFD320EC7255A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF0CECCDFD7F4A579B31986D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,12 +100,28 @@
 			path = BloomJournal;
 			sourceTree = "<group>";
 		};
+		6B2BFC319AEC04F05E845F18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91AF0D47650E77869007684D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F10961EEB7745B590D6C7F3 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
 				7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91AF0D47650E77869007684D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3667D62A96A69447275DF040 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		9279184B6048490B8427E59C /* Models */ = {
@@ -96,11 +135,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A66CCB13DA6B8168C7082F91 /* BloomJournalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */,
+			);
+			name = BloomJournalUITests;
+			path = BloomJournalUITests;
+			sourceTree = "<group>";
+		};
 		B53203463BB041368D7CB19E = {
 			isa = PBXGroup;
 			children = (
 				1C03C6D2BAEF479481AC13CC /* BloomJournal */,
 				E86A1DFA44E845C89522A423 /* Products */,
+				6B2BFC319AEC04F05E845F18 /* Frameworks */,
+				A66CCB13DA6B8168C7082F91 /* BloomJournalUITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				6E9C6BABAA974D8DB497E967 /* BloomJournal.app */,
+				FD88559F5DE63CE061F947D4 /* BloomJournalUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +178,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C1124DC1C70EE18E417C365A /* BloomJournalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BED951E183D37FACA2568FBA /* Build configuration list for PBXNativeTarget "BloomJournalUITests" */;
+			buildPhases = (
+				5938B7B9A69BBF3FBE553000 /* Sources */,
+				8A3203ECFEF576D8DFFDAD47 /* Frameworks */,
+				8A610E19EADC45DD1DD84A43 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8FCAF85C80B5408F6031795B /* PBXTargetDependency */,
+			);
+			name = BloomJournalUITests;
+			productName = BloomJournalUITests;
+			productReference = FD88559F5DE63CE061F947D4 /* BloomJournalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C3536BC85FE54A049E7A1991 /* BloomJournal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09834B2DCD5D46E296D2E83D /* Build configuration list for PBXNativeTarget "BloomJournal" */;
@@ -181,11 +250,19 @@
 			projectRoot = "";
 			targets = (
 				C3536BC85FE54A049E7A1991 /* BloomJournal */,
+				C1124DC1C70EE18E417C365A /* BloomJournalUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8A610E19EADC45DD1DD84A43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2DF9B48B9F54DAB8DBE93E8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +277,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5938B7B9A69BBF3FBE553000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C11B83DCF53E4DEDB448F14C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -220,6 +305,15 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8FCAF85C80B5408F6031795B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = BloomJournal;
+			target = C3536BC85FE54A049E7A1991 /* BloomJournal */;
+			targetProxy = EF9C3F511D99A005FC7422FB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4A3490DE540C9CC5738DFFF6 /* Localizable.strings */ = {
@@ -414,6 +508,51 @@
 			};
 			name = Debug;
 		};
+		6351092C68122AE651670BDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y5RBKYD4FY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloomJournal;
+			};
+			name = Debug;
+		};
+		AF53D024C88A37E7175D7861 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y5RBKYD4FY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BloomJournal;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -422,6 +561,15 @@
 			buildConfigurations = (
 				13D9D242AB2141989ACD7C3C /* Debug */,
 				026B921DEDC64B5A98C02D99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BED951E183D37FACA2568FBA /* Build configuration list for PBXNativeTarget "BloomJournalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF53D024C88A37E7175D7861 /* Release */,
+				6351092C68122AE651670BDE /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
