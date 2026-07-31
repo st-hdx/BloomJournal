@@ -145,7 +145,10 @@ struct PaywallView: View {
 
 private struct FeatureRow: View {
     let icon: String
-    let text: String
+    // LocalizedStringKey (not String) so `Text(text)` resolves through
+    // Localizable.strings. A plain String would render verbatim and skip
+    // localization, leaving these bullets in the base language (Japanese).
+    let text: LocalizedStringKey
 
     var body: some View {
         HStack(spacing: 14) {
