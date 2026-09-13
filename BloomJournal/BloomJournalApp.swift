@@ -18,6 +18,7 @@ struct BloomJournalApp: App {
             HomeView()
                 .environmentObject(store)
                 .environmentObject(purchaseManager)
+                .onAppear { Analytics.shared.track(AnalyticsEvent.appOpened) }
         }
     }
 }

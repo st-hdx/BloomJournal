@@ -142,6 +142,7 @@ struct NotificationSettingsView: View {
 
                 if !purchaseManager.isPro {
                     Button {
+                        Analytics.shared.track(AnalyticsEvent.paywallShown, ["trigger": "notification"])
                         showPaywall = true
                     } label: {
                         HStack(spacing: 12) {

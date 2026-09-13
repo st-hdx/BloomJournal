@@ -31,6 +31,7 @@ class VisionStore: ObservableObject {
     }
 
     func add(title: String) {
+        Task { @MainActor in Analytics.shared.track(AnalyticsEvent.visionCreated) }
         visions.append(Vision(title: title))
         save()
     }
@@ -46,6 +47,7 @@ class VisionStore: ObservableObject {
     }
 
     func addDetail(_ detail: String, to vision: Vision) {
+        Task { @MainActor in Analytics.shared.track(AnalyticsEvent.detailWritten) }
         guard let index = visions.firstIndex(where: { $0.id == vision.id }) else { return }
         visions[index].details.append(detail)
         save()

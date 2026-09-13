@@ -23,6 +23,7 @@
 		87E5D301AACC44C2B6C551D6 /* JournalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21529BC6424F08896B8CD5 /* JournalingView.swift */; };
 		8BC82AF8099D4B6987351582 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D7778357DF4FD38AE0B964 /* Theme.swift */; };
 		99A48146AABCC4861E1FE159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A3490DE540C9CC5738DFFF6 /* Localizable.strings */; };
+		FE4F14D12F7EC13E005133D5 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4F14D02F7EC13E005133D5 /* AnalyticsService.swift */; };
 		A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */; };
 		A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 866A2F35C8C6B698C8F21120 /* InfoPlist.strings */; };
 		AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */; };
@@ -52,6 +53,7 @@
 		82FBF08504C4447AB3D4563F /* VisionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionDetailView.swift; sourceTree = "<group>"; };
 		85EBF776A06B411590BE6DF3 /* ReleaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseView.swift; sourceTree = "<group>"; };
 		93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionStore.swift; sourceTree = "<group>"; };
+		FE4F14D02F7EC13E005133D5 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		B45E08515F714B87A083AA75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				102F5DCB00E34E0DBA64D332 /* Vision.swift */,
 				93ACD3F1E3D948F7B875B5AD /* VisionStore.swift */,
+				FE4F14D02F7EC13E005133D5 /* AnalyticsService.swift */,
 				B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */,
 				BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */,
 			);
@@ -305,6 +308,7 @@
 				87E5D301AACC44C2B6C551D6 /* JournalingView.swift in Sources */,
 				85FFC697DE0342D684DA9B1E /* ReleaseView.swift in Sources */,
 				0D9470BE2BE74AEB8B71841A /* VisionDetailView.swift in Sources */,
+				FE4F14D12F7EC13E005133D5 /* AnalyticsService.swift in Sources */,
 				A1B2C3D4E5F64A7B8C9D0E1F /* PurchaseManager.swift in Sources */,
 				AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */,
 				C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */,
@@ -364,7 +368,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -447,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

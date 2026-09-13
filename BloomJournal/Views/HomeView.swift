@@ -121,6 +121,9 @@ struct HomeView: View {
                             }
                             Button {
                                 if !purchaseManager.isPro && store.visions.count >= PurchaseManager.freeVisionLimit {
+                                    // 上限に当たった回数と、そこから購入画面を見た回数は別に数える。
+                                    Analytics.shared.track(AnalyticsEvent.freeLimitHit)
+                                    Analytics.shared.track(AnalyticsEvent.paywallShown, ["trigger": "add_button"])
                                     showPaywall = true
                                 } else {
                                     showAddVision = true
@@ -386,6 +389,8 @@ struct OnboardingView: View {
 
                     Button {
                         if atLimit {
+                            Analytics.shared.track(AnalyticsEvent.freeLimitHit)
+                            Analytics.shared.track(AnalyticsEvent.paywallShown, ["trigger": "onboarding"])
                             showPaywall = true
                         } else {
                             addVision()

@@ -122,10 +122,15 @@ struct PaywallView: View {
     private func doPurchase() async {
         isPurchasing = true
         errorMessage = nil
+        Analytics.shared.track(AnalyticsEvent.paywallTapped)
         do {
             try await purchaseManager.purchase()
+            Analytics.shared.track(AnalyticsEvent.purchaseSucceeded)
             dismiss()
         } catch {
+            // RevenueCatは「やめた」も例外で返すため、ここでは失敗とまとめて数える。
+            // 他のアプリのように分けられない点に注意。
+            Analytics.shared.track(AnalyticsEvent.purchaseFailed)
             errorMessage = NSLocalizedString("purchase_failed_message", comment: "Shown when a purchase attempt fails")
         }
         isPurchasing = false
@@ -134,6 +139,7 @@ struct PaywallView: View {
     private func doRestore() async {
         isRestoring = true
         errorMessage = nil
+        Analytics.shared.track(AnalyticsEvent.restoreTapped)
         do {
             try await purchaseManager.restore()
             dismiss()
