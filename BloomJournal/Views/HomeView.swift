@@ -388,13 +388,7 @@ struct OnboardingView: View {
                         .cardStyle()
 
                     Button {
-                        if atLimit {
-                            Analytics.shared.track(AnalyticsEvent.freeLimitHit)
-                            Analytics.shared.track(AnalyticsEvent.paywallShown, ["trigger": "onboarding"])
-                            showPaywall = true
-                        } else {
-                            addVision()
-                        }
+                        addVision()
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 32))
@@ -476,6 +470,11 @@ struct OnboardingView: View {
         let trimmed = inputText.trimmingCharacters(in: .whitespaces)
         guard !trimmed.isEmpty else { return }
         if atLimit {
+            // キーボードのReturn（.onSubmit）からもここを通る。「＋」ボタン側は
+            // 呼び出し前にtrackしているが、ここを素通りすると同じ上限到達でも
+            // 計測が漏れる（ライフマップで踏んだのと同じ穴）。
+            Analytics.shared.track(AnalyticsEvent.freeLimitHit)
+            Analytics.shared.track(AnalyticsEvent.paywallShown, ["trigger": "onboarding"])
             showPaywall = true
             return
         }
