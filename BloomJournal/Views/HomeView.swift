@@ -4,12 +4,15 @@ struct HomeView: View {
     @EnvironmentObject private var store: VisionStore
     @EnvironmentObject private var purchaseManager: PurchaseManager
     @ObservedObject private var notificationManager = NotificationManager.shared
+    @ObservedObject private var streakManager = StreakManager.shared
     @State private var showJournaling = false
     @State private var showAddVision = false
     @State private var newVisionTitle = ""
     @State private var isReordering = false
     @State private var showPaywall = false
     @State private var showSettings = false
+    @State private var showAffirmation = false
+    @State private var showVisualization = false
 
     var body: some View {
         NavigationStack {
@@ -46,6 +49,16 @@ struct HomeView: View {
         return prompts[dayOfYear % prompts.count]
     }
 
+    private var todayAffirmation: String {
+        let affirmations = LocalizedContent.affirmations
+        let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
+        return affirmations[dayOfYear % affirmations.count]
+    }
+
+    private var streakText: String {
+        String(format: NSLocalizedString("streak_days_format", comment: "Shown next to the date when on a journaling streak"), streakManager.currentStreak)
+    }
+
     private var mainView: some View {
         ZStack {
             Theme.background.ignoresSafeArea()
@@ -69,6 +82,16 @@ struct HomeView: View {
                                 .foregroundColor(Theme.tertiaryText)
                         }
                         .padding(.top, 2)
+                        if streakManager.currentStreak > 0 {
+                            HStack(spacing: 4) {
+                                Text("🔥")
+                                    .font(.system(size: 10))
+                                Text(streakText)
+                                    .font(.system(.caption2, design: .rounded).weight(.semibold))
+                                    .foregroundColor(Theme.accent1)
+                            }
+                            .padding(.top, 2)
+                        }
                         #if DEBUG
                         Button {
                             purchaseManager.toggleProForDebug()
@@ -189,7 +212,41 @@ struct HomeView: View {
                     }
                 }
 
-                Spacer(minLength: 0)
+                // The affirmation card + journaling section below can
+                // exceed the remaining screen height once a few visions are
+                // saved, which would otherwise push "ビジュアライゼーションを
+                // 始める" off-screen with no way to reach it. Wrap in a
+                // ScrollView so it degrades to scrollable instead of clipped.
+                ScrollView {
+                // Today's Affirmation
+                Button {
+                    showAffirmation = true
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "sparkle")
+                            .font(.system(.body))
+                            .foregroundStyle(Theme.accentGradient)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text("今日の言葉")
+                                .font(.system(.caption2, design: .rounded).weight(.bold))
+                                .foregroundColor(Theme.accent1)
+                            Text(todayAffirmation)
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundColor(Theme.text)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.leading)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundColor(Theme.tertiaryText)
+                    }
+                    .padding(14)
+                    .cardStyle()
+                }
+                .buttonStyle(.plain)
+                .padding(.horizontal, 20)
+                .padding(.bottom, 12)
 
                 // Journaling section
                 VStack(spacing: 0) {
@@ -245,12 +302,39 @@ struct HomeView: View {
                         .font(.system(.caption2, design: .rounded))
                         .foregroundColor(Theme.tertiaryText)
                         .padding(.top, 10)
+
+                    Button {
+                        showVisualization = true
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "wind")
+                            Text("ビジュアライゼーションを始める")
+                                .fontWeight(.semibold)
+                        }
+                        .font(.system(.subheadline, design: .rounded))
+                        .foregroundColor(Theme.accent1)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Theme.accent1.opacity(0.4), lineWidth: 1.5)
+                        )
+                    }
+                    .padding(.horizontal, 24)
+                    .padding(.top, 10)
                 }
                 .padding(.bottom, 40)
+                }
             }
         }
         .sheet(isPresented: $showPaywall) {
             PaywallView().environmentObject(purchaseManager)
+        }
+        .sheet(isPresented: $showAffirmation) {
+            AffirmationView()
+        }
+        .fullScreenCover(isPresented: $showVisualization) {
+            VisualizationView().environmentObject(store)
         }
         .sheet(isPresented: $showSettings) {
             NotificationSettingsView(manager: notificationManager)

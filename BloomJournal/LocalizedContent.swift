@@ -25,6 +25,14 @@ enum LocalizedContent {
         isJapanese ? ja_quotes : en_quotes
     }
 
+    static var affirmations: [String] {
+        isJapanese ? ja_affirmations : en_affirmations
+    }
+
+    static var visualizationCues: [String] {
+        isJapanese ? ja_visualizationCues : en_visualizationCues
+    }
+
     private static let ja_writingPrompts = [
         "今どんな自分をイメージしていますか？",
         "もし全てが思い通りになったら、今日どんな一日を過ごしていますか？",
@@ -69,5 +77,47 @@ enum LocalizedContent {
         Quote(text: "See yourself succeeding first, and your brain will move toward it.", author: "John Assaraf"),
         Quote(text: "Your subconscious mind follows your thoughts, so plant good ones.", author: "Joseph Murphy"),
         Quote(text: "A person becomes what they believe they will become.", author: "Goethe"),
+    ]
+
+    private static let ja_affirmations = [
+        "私は望む未来を引き寄せる力を持っている",
+        "すべてはうまくいっている",
+        "私は豊かさに囲まれている",
+        "私の願いはすでに叶い始めている",
+        "私は価値のある存在だ",
+        "今この瞬間、私は満たされている",
+        "宇宙は私の味方だ",
+        "私は毎日、理想の自分に近づいている",
+        "チャンスは次々と訪れる",
+        "私は感謝とともに受け取る準備ができている",
+    ]
+
+    private static let en_affirmations = [
+        "I have the power to attract the future I desire.",
+        "Everything is working out for me.",
+        "I am surrounded by abundance.",
+        "My wishes are already beginning to come true.",
+        "I am worthy.",
+        "In this moment, I am fulfilled.",
+        "The universe is on my side.",
+        "Every day, I'm becoming the person I want to be.",
+        "Opportunities keep finding their way to me.",
+        "I am ready to receive, with gratitude.",
+    ]
+
+    private static let ja_visualizationCues = [
+        "ゆっくりと深呼吸をしましょう",
+        "その景色を、できるだけ鮮明にイメージしてください",
+        "そこにいる自分は、どんな気持ちでしょうか",
+        "すでに叶っているとしたら、何が見えますか",
+        "その喜びを、今この瞬間に感じてみましょう",
+    ]
+
+    private static let en_visualizationCues = [
+        "Take a slow, deep breath.",
+        "Picture the scene as vividly as you can.",
+        "How does it feel to be there?",
+        "If it had already come true, what would you see?",
+        "Let yourself feel that joy, right now.",
     ]
 }

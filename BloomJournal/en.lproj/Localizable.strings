@@ -80,3 +80,23 @@
 /* PurchaseManager */
 "error_product_not_found" = "Couldn't find the product.";
 "error_not_entitled" = "Couldn't confirm the purchase.";
+
+/* HomeView (Affirmation / Visualization / Streak) */
+"今日の言葉" = "Today's Words";
+"ビジュアライゼーションを始める" = "Start a Visualization";
+"streak_days_format" = "%d-day streak";
+
+/* AffirmationView */
+"お気に入り" = "Favorites";
+"お気に入りはまだありません" = "No favorites yet";
+
+/* VisualizationView */
+"ビジュアライゼーション" = "Visualization";
+"イメージしたいビジョンを選んでください" = "Choose a vision to visualize";
+"すべてのビジョン" = "All Visions";
+"時間を選ぶ" = "Choose a duration";
+"visualization_minutes_format" = "%d min";
+"セッションを中断しますか？" = "End this session?";
+"やめる" = "Quit";
+"イメージが鮮明になった" = "Your vision just got clearer";
+"思い描くことで、未来はもっと近づく" = "Picturing it brings the future closer";

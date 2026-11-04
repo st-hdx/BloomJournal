@@ -16,6 +16,7 @@
 		598B31035E734E6D9065BFC7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6FE01BF1B44A95BA491FC4 /* Preview Assets.xcassets */; };
 		66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */; };
 		7F98B1F5996F9694E773341E /* ScreenshotTestsJA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */; };
+		4EDEEA8597BB4860B1222BFF /* VerifyNewFeaturesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B216BEE3F0A480C88B0BFF6 /* VerifyNewFeaturesTests.swift */; };
 		3204B3886C5A5A0D40D1C4CF /* XCUIElementPolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */; };
 		6E47F91DE7EC4A8A819C75C1 /* BloomJournalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */; };
 		8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E2A2F00909294776E815C9 /* LocalizedContent.swift */; };
@@ -28,6 +29,10 @@
 		A1EFC97C8109889EC8802CDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 866A2F35C8C6B698C8F21120 /* InfoPlist.strings */; };
 		AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */; };
 		C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */; };
+		ACD770680D3D446098E77819 /* AffirmationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3C9D9C0D5494595227492 /* AffirmationStore.swift */; };
+		7C7DE10D71A642B99FD2658C /* StreakManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A6278B9A649F786F5E0A8 /* StreakManager.swift */; };
+		9580F241ED1B47C4829FA25B /* AffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBF43D90C544ED3B9DE6476 /* AffirmationView.swift */; };
+		E8496FC3C2444BB8B357EB2E /* VisualizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F89CC4EE68E48C1BEE15298 /* VisualizationView.swift */; };
 		FE4F14C42F7EC13E005133D5 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C32F7EC13E005133D5 /* RevenueCat */; };
 		FE4F14C62F7EC13E005133D5 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = FE4F14C52F7EC13E005133D5 /* RevenueCatUI */; };
 /* End PBXBuildFile section */
@@ -57,11 +62,16 @@
 		B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		B45E08515F714B87A083AA75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		4FE3C9D9C0D5494595227492 /* AffirmationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationStore.swift; sourceTree = "<group>"; };
+		4F9A6278B9A649F786F5E0A8 /* StreakManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakManager.swift; sourceTree = "<group>"; };
+		1FBF43D90C544ED3B9DE6476 /* AffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationView.swift; sourceTree = "<group>"; };
+		7F89CC4EE68E48C1BEE15298 /* VisualizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationView.swift; sourceTree = "<group>"; };
 		C7CD607E91606DE20308E3BE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		E0FAE4D6DD9A4753B3186068 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTestsJA.swift; sourceTree = "<group>"; };
+		2B216BEE3F0A480C88B0BFF6 /* VerifyNewFeaturesTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VerifyNewFeaturesTests.swift; sourceTree = "<group>"; };
 		0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XCUIElementPolling.swift; sourceTree = "<group>"; };
 		EC6D56BD7FD34D3E966B069E /* BloomJournalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloomJournalApp.swift; sourceTree = "<group>"; };
 		F29D9C23BFB7BCC771BAA86A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -138,6 +148,8 @@
 				FE4F14D02F7EC13E005133D5 /* AnalyticsService.swift */,
 				B2C3D4E5F6A74B8C9D0E1F2A /* PurchaseManager.swift */,
 				BB1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift */,
+				4FE3C9D9C0D5494595227492 /* AffirmationStore.swift */,
+				4F9A6278B9A649F786F5E0A8 /* StreakManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +159,7 @@
 			children = (
 				EBDC0558689447C32BDD7010 /* ScreenshotTests.swift */,
 				33AD4F0578C41C7C9E311CF6 /* ScreenshotTestsJA.swift */,
+				2B216BEE3F0A480C88B0BFF6 /* VerifyNewFeaturesTests.swift */,
 				0ACF79E01C92F28E0B15CBBF /* XCUIElementPolling.swift */,
 			);
 			name = BloomJournalUITests;
@@ -171,6 +184,8 @@
 				85EBF776A06B411590BE6DF3 /* ReleaseView.swift */,
 				82FBF08504C4447AB3D4563F /* VisionDetailView.swift */,
 				D4E5F6A7B8C94D0E1F2A3B4C /* PaywallView.swift */,
+				1FBF43D90C544ED3B9DE6476 /* AffirmationView.swift */,
+				7F89CC4EE68E48C1BEE15298 /* VisualizationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -292,6 +307,7 @@
 			files = (
 				66C3FAA8FED816EAF54865A2 /* ScreenshotTests.swift in Sources */,
 				7F98B1F5996F9694E773341E /* ScreenshotTestsJA.swift in Sources */,
+				4EDEEA8597BB4860B1222BFF /* VerifyNewFeaturesTests.swift in Sources */,
 				3204B3886C5A5A0D40D1C4CF /* XCUIElementPolling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +329,10 @@
 				AA1B2C3D4E5F6A7B8C9D0E1F /* NotificationManager.swift in Sources */,
 				C3D4E5F6A7B84C9D0E1F2A3B /* PaywallView.swift in Sources */,
 				8041EDBDAB88022E0C626612 /* LocalizedContent.swift in Sources */,
+				ACD770680D3D446098E77819 /* AffirmationStore.swift in Sources */,
+				7C7DE10D71A642B99FD2658C /* StreakManager.swift in Sources */,
+				9580F241ED1B47C4829FA25B /* AffirmationView.swift in Sources */,
+				E8496FC3C2444BB8B357EB2E /* VisualizationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -453,7 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pandagiken.bloomjournal.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

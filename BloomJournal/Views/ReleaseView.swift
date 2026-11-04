@@ -235,6 +235,7 @@ struct ReleaseView: View {
         textOpacity = 1
         textOffset = 0
         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        StreakManager.shared.recordCompletion()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             withAnimation(.easeIn(duration: 1.0)) {
                 textOpacity = 0

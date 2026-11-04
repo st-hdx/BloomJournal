@@ -197,4 +197,8 @@ enum AnalyticsEvent {
     static let purchaseCancelled = "purchase_cancelled"
     static let purchaseFailed = "purchase_failed"
     static let restoreTapped = "restore_purchases_tapped"
+    static let affirmationViewed = "affirmation_viewed"
+    static let affirmationFavorited = "affirmation_favorited"
+    static let visualizationStarted = "visualization_started"
+    static let visualizationCompleted = "visualization_completed"
 }
