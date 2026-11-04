@@ -21,6 +21,7 @@
 "購入を復元する" = "Restore Purchases";
 "purchase_failed_message" = "Purchase failed. Please try again.";
 "restore_failed_message" = "Restore failed. Please try again.";
+"purchase_blocked_by_restriction_message" = "The purchase sheet didn't appear. Please check Settings → Screen Time → Content & Privacy Restrictions → iTunes & App Store Purchases, and make sure In-App Purchases are allowed.";
 
 /* HomeView */
 "ビジョンを現実に引き寄せる" = "Manifest your vision into reality";

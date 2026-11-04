@@ -123,13 +123,21 @@ struct PaywallView: View {
         isPurchasing = true
         errorMessage = nil
         Analytics.shared.track(AnalyticsEvent.paywallTapped)
+        let startedAt = Date()
         do {
             try await purchaseManager.purchase()
             Analytics.shared.track(AnalyticsEvent.purchaseSucceeded)
             dismiss()
+        } catch PurchaseError.cancelled {
+            // 自分でやめただけなので、失敗のエラー表示はしない。
+            Analytics.shared.track(AnalyticsEvent.purchaseCancelled)
+            // タップから1秒未満での即時キャンセルは人間の判断ではありえない。
+            // スクリーンタイム等の端末側制限で確認シートが出ないまま弾かれている
+            // ケースと判断する(栞・DailyPieChartで同じ現象を確認済み)。
+            if Date().timeIntervalSince(startedAt) < 1.0 {
+                errorMessage = NSLocalizedString("purchase_blocked_by_restriction_message", comment: "Shown when the purchase sheet never appeared, likely due to a device restriction")
+            }
         } catch {
-            // RevenueCatは「やめた」も例外で返すため、ここでは失敗とまとめて数える。
-            // 他のアプリのように分けられない点に注意。
             Analytics.shared.track(AnalyticsEvent.purchaseFailed)
             errorMessage = NSLocalizedString("purchase_failed_message", comment: "Shown when a purchase attempt fails")
         }

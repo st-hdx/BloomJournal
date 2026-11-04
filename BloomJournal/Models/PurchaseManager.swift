@@ -33,8 +33,15 @@ class PurchaseManager: ObservableObject {
         guard let product = products.first else {
             throw PurchaseError.productNotFound
         }
+        // RevenueCatのpurchase(product:)は「やめた」では例外を投げず、
+        // userCancelled: trueで正常に返ってくる(SDKのドキュメント参照)。
+        // これを見ずに「エンタイトルメントが付いていない」とだけ判定すると、
+        // 単なるキャンセルまで「購入に失敗しました」というエラー表示になってしまう。
         let result = try await Purchases.shared.purchase(product: product)
         updateProStatus(from: result.customerInfo)
+        if result.userCancelled {
+            throw PurchaseError.cancelled
+        }
         if !isPro {
             throw PurchaseError.notEntitled
         }
@@ -64,11 +71,13 @@ class PurchaseManager: ObservableObject {
 enum PurchaseError: LocalizedError {
     case productNotFound
     case notEntitled
+    case cancelled
 
     var errorDescription: String? {
         switch self {
         case .productNotFound: return NSLocalizedString("error_product_not_found", comment: "Purchase error: product not found")
         case .notEntitled: return NSLocalizedString("error_not_entitled", comment: "Purchase error: entitlement not confirmed")
+        case .cancelled: return nil
         }
     }
 }

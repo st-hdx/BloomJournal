@@ -194,6 +194,7 @@ enum AnalyticsEvent {
     static let paywallShown = "paywall_shown"                // (trigger: add_button / onboarding / notification)
     static let paywallTapped = "paywall_tapped"              // 購入ボタンを押した
     static let purchaseSucceeded = "purchase_succeeded"
+    static let purchaseCancelled = "purchase_cancelled"
     static let purchaseFailed = "purchase_failed"
     static let restoreTapped = "restore_purchases_tapped"
 }

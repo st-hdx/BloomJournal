@@ -21,6 +21,7 @@
 "購入を復元する" = "購入を復元する";
 "purchase_failed_message" = "購入に失敗しました。もう一度お試しください。";
 "restore_failed_message" = "復元に失敗しました。もう一度お試しください。";
+"purchase_blocked_by_restriction_message" = "購入画面が表示されませんでした。「設定」→「スクリーンタイム」→「コンテンツとプライバシーの制限」→「iTunesおよびApp Storeでの購入」で、App内課金が許可されているかご確認ください。";
 
 /* HomeView */
 "ビジョンを現実に引き寄せる" = "ビジョンを現実に引き寄せる";
