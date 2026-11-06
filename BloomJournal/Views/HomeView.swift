@@ -193,6 +193,13 @@ struct HomeView: View {
                     .environment(\.editMode, .constant(.active))
                     .scrollContentBackground(.hidden)
                 } else {
+                    // Vision list and the affirmation/journaling section below share
+                    // ONE ScrollView. Two separate ScrollViews here used to split the
+                    // remaining height 50/50 regardless of how little content either
+                    // side had, leaving a large dead gap between them whenever there
+                    // were only one or two visions. A single ScrollView lets short
+                    // content sit flush together while still scrolling as a whole
+                    // once a few visions push the total past the screen height.
                     ScrollView {
                         VStack(spacing: 10) {
                             ForEach(store.visions) { vision in
@@ -209,15 +216,6 @@ struct HomeView: View {
                         .padding(.horizontal, 20)
                         .padding(.bottom, 16)
                         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: store.visions.count)
-                    }
-                }
-
-                // The affirmation card + journaling section below can
-                // exceed the remaining screen height once a few visions are
-                // saved, which would otherwise push "ビジュアライゼーションを
-                // 始める" off-screen with no way to reach it. Wrap in a
-                // ScrollView so it degrades to scrollable instead of clipped.
-                ScrollView {
                 // Today's Affirmation
                 Button {
                     showAffirmation = true
@@ -326,6 +324,7 @@ struct HomeView: View {
                 .padding(.bottom, 40)
                 }
             }
+        }
         }
         .sheet(isPresented: $showPaywall) {
             PaywallView().environmentObject(purchaseManager)

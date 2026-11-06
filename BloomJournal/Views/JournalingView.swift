@@ -28,6 +28,8 @@ struct JournalingView: View {
                 VStack(spacing: 0) {
                     ScrollingVisionBanner(visions: store.visions)
                         .frame(height: 32)
+                        .padding(.leading, 60)
+                        .padding(.trailing, 20)
                         .padding(.top, 20)
 
                     Text(prompt)

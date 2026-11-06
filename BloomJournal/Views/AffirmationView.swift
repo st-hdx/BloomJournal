@@ -38,72 +38,77 @@ struct AffirmationView: View {
                 .padding(.top, 24)
                 .padding(.bottom, 20)
 
-                Spacer()
+                // Everything below the header flows naturally in one scroll
+                // area instead of being split apart by Spacer()s. Two flexible
+                // Spacers here used to divide the remaining height evenly
+                // above and below the quote regardless of screen size, which
+                // left a huge, empty-looking gap on tall phones. A ScrollView
+                // keeps the quote right under the header and still scrolls if
+                // the favorites list grows long.
+                ScrollView {
+                    VStack(spacing: 24) {
+                        Text(current)
+                            .font(.system(.title3, design: .rounded).weight(.semibold))
+                            .foregroundColor(Theme.text)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(6)
+                            .id(index)
+                            .transition(.opacity)
+                            .padding(.horizontal, 12)
 
-                VStack(spacing: 24) {
-                    Text(current)
-                        .font(.system(.title3, design: .rounded).weight(.semibold))
-                        .foregroundColor(Theme.text)
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(6)
-                        .id(index)
-                        .transition(.opacity)
-                        .padding(.horizontal, 12)
+                        HStack(spacing: 32) {
+                            Button { move(-1) } label: {
+                                Image(systemName: "chevron.left")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundColor(Theme.text)
+                                    .frame(width: 44, height: 44)
+                                    .background(Theme.card)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
+                            }
 
-                    HStack(spacing: 32) {
-                        Button { move(-1) } label: {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Theme.text)
-                                .frame(width: 44, height: 44)
-                                .background(Theme.card)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
-                        }
+                            Button { toggleFavorite() } label: {
+                                Image(systemName: affirmationStore.isFavorite(current) ? "heart.fill" : "heart")
+                                    .font(.system(size: 18, weight: .semibold))
+                                    .foregroundStyle(
+                                        affirmationStore.isFavorite(current)
+                                        ? AnyShapeStyle(Theme.accentGradient)
+                                        : AnyShapeStyle(Theme.secondaryText)
+                                    )
+                                    .frame(width: 48, height: 48)
+                                    .background(Theme.card)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
+                            }
 
-                        Button { toggleFavorite() } label: {
-                            Image(systemName: affirmationStore.isFavorite(current) ? "heart.fill" : "heart")
-                                .font(.system(size: 18, weight: .semibold))
-                                .foregroundStyle(
-                                    affirmationStore.isFavorite(current)
-                                    ? AnyShapeStyle(Theme.accentGradient)
-                                    : AnyShapeStyle(Theme.secondaryText)
-                                )
-                                .frame(width: 48, height: 48)
-                                .background(Theme.card)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
-                        }
-
-                        Button { move(1) } label: {
-                            Image(systemName: "chevron.right")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(Theme.text)
-                                .frame(width: 44, height: 44)
-                                .background(Theme.card)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
+                            Button { move(1) } label: {
+                                Image(systemName: "chevron.right")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundColor(Theme.text)
+                                    .frame(width: 44, height: 44)
+                                    .background(Theme.card)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
+                            }
                         }
                     }
-                }
-                .padding(.horizontal, 24)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 40)
+                    .padding(.bottom, 40)
 
-                Spacer()
-
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("お気に入り")
-                        .font(.system(.caption, design: .rounded).weight(.bold))
-                        .foregroundColor(Theme.secondaryText)
-                        .padding(.horizontal, 24)
-
-                    if affirmationStore.favoritesInOrder.isEmpty {
-                        Text("お気に入りはまだありません")
-                            .font(.system(.caption, design: .rounded))
-                            .foregroundColor(Theme.tertiaryText)
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("お気に入り")
+                            .font(.system(.caption, design: .rounded).weight(.bold))
+                            .foregroundColor(Theme.secondaryText)
                             .padding(.horizontal, 24)
-                            .padding(.bottom, 20)
-                    } else {
-                        ScrollView {
+
+                        if affirmationStore.favoritesInOrder.isEmpty {
+                            Text("お気に入りはまだありません")
+                                .font(.system(.caption, design: .rounded))
+                                .foregroundColor(Theme.tertiaryText)
+                                .padding(.horizontal, 24)
+                                .padding(.bottom, 20)
+                        } else {
                             VStack(spacing: 8) {
                                 ForEach(affirmationStore.favoritesInOrder, id: \.self) { text in
                                     Button {
@@ -124,10 +129,9 @@ struct AffirmationView: View {
                             }
                             .padding(.horizontal, 24)
                         }
-                        .frame(maxHeight: 160)
                     }
+                    .padding(.bottom, 20)
                 }
-                .padding(.bottom, 20)
             }
         }
         .onAppear {
