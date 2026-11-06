@@ -49,7 +49,7 @@ final class ScreenshotTestsJA: XCTestCase {
     // MARK: - 02-08 Main flow (seeded data)
 
     func testMainFlow() throws {
-        let app = makeApp(["-uitestSeed"])
+        let app = makeApp(["-uitestSeed", "-uitestSeedStreak"])
         app.launch()
 
         // 02 Home
@@ -109,6 +109,35 @@ final class ScreenshotTestsJA: XCTestCase {
                       "Release completion not shown")
         settle()
         snap("08_release_complete_ja")
+    }
+
+    // MARK: - 09 Affirmation (daily affirmation + streak)
+
+    func testAffirmation() throws {
+        let app = makeApp(["-uitestSeed", "-uitestSeedStreak", "-uitestSeedFavorite"])
+        app.launch()
+
+        XCTAssertTrue(waitFor(app.staticTexts["今日の言葉"]), "Home not shown")
+        app.staticTexts["今日の言葉"].tap()
+        XCTAssertTrue(waitFor(app.staticTexts["お気に入り"]), "Affirmation sheet not shown")
+        settle(1.2)   // let any transient system overlay (e.g. app-switch banner) clear
+        settle()
+        snap("09_affirmation_ja")
+    }
+
+    // MARK: - 10 Visualization
+
+    func testVisualizationScreenshot() throws {
+        let app = makeApp(["-uitestSeed"])
+        app.launch()
+
+        XCTAssertTrue(waitFor(app.buttons["ビジュアライゼーションを始める"]), "Entry point not shown")
+        app.buttons["ビジュアライゼーションを始める"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertTrue(waitFor(app.staticTexts["ビジュアライゼーション"]), "Setup screen not shown")
+        if app.buttons["10分"].waitForExistence(timeout: 3) { app.buttons["10分"].tap() }
+        app.buttons["はじめる"].tap()
+        settle(1.5)
+        snap("10_visualization_ja")
     }
 
     // MARK: - Sheet dismissal

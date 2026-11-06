@@ -33,6 +33,7 @@ struct AffirmationView: View {
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                     }
+                    .accessibilityIdentifier("affirmation.close")
                 }
                 .padding(.horizontal, 24)
                 .padding(.top, 24)
@@ -66,6 +67,7 @@ struct AffirmationView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                             }
+                            .accessibilityIdentifier("affirmation.prev")
 
                             Button { toggleFavorite() } label: {
                                 Image(systemName: affirmationStore.isFavorite(current) ? "heart.fill" : "heart")
@@ -80,6 +82,7 @@ struct AffirmationView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                             }
+                            .accessibilityIdentifier("affirmation.favorite")
 
                             Button { move(1) } label: {
                                 Image(systemName: "chevron.right")
@@ -90,6 +93,7 @@ struct AffirmationView: View {
                                     .clipShape(Circle())
                                     .overlay(Circle().stroke(Theme.cardBorder, lineWidth: 1))
                             }
+                            .accessibilityIdentifier("affirmation.next")
                         }
                     }
                     .padding(.horizontal, 24)

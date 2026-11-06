@@ -7,6 +7,12 @@ class AffirmationStore: ObservableObject {
     private let key = "favoriteAffirmations"
 
     init() {
+        if ProcessInfo.processInfo.arguments.contains("-uitestSeedFavorite") {   // スクリーンショット撮影用
+            let dayOfYear = Calendar.current.ordinality(of: .day, in: .year, for: Date()) ?? 1
+            let affirmations = LocalizedContent.affirmations
+            favorites = [affirmations[dayOfYear % affirmations.count]]
+            return
+        }
         if let saved = UserDefaults.standard.array(forKey: key) as? [String] {
             favorites = Set(saved)
         }

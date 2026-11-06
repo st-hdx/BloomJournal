@@ -16,6 +16,14 @@ class StreakManager: ObservableObject {
     }()
 
     private init() {
+        if ProcessInfo.processInfo.arguments.contains("-uitestSeedStreak") {   // スクリーンショット撮影用
+            let calendar = Calendar.current
+            practicedDates = Set((0..<7).compactMap { offset in
+                calendar.date(byAdding: .day, value: -offset, to: Date()).map(Self.dayFormatter.string(from:))
+            })
+            recalculate()
+            return
+        }
         if let saved = UserDefaults.standard.array(forKey: key) as? [String] {
             practicedDates = Set(saved)
         }
