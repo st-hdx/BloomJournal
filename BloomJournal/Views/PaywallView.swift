@@ -130,11 +130,15 @@ struct PaywallView: View {
             dismiss()
         } catch PurchaseError.cancelled {
             // 自分でやめただけなので、失敗のエラー表示はしない。
-            Analytics.shared.track(AnalyticsEvent.purchaseCancelled)
             // タップから1秒未満での即時キャンセルは人間の判断ではありえない。
             // スクリーンタイム等の端末側制限で確認シートが出ないまま弾かれている
             // ケースと判断する(栞・DailyPieChartで同じ現象を確認済み)。
-            if Date().timeIntervalSince(startedAt) < 1.0 {
+            // 案内は前から出していたが件数を分けていなかったので、何人が弾かれて
+            // いるのかが後から分からなかった。paramsに残す。
+            let blocked = Date().timeIntervalSince(startedAt) < 1.0
+            Analytics.shared.track(AnalyticsEvent.purchaseCancelled,
+                                   ["blocked": blocked ? "true" : "false"])
+            if blocked {
                 errorMessage = NSLocalizedString("purchase_blocked_by_restriction_message", comment: "Shown when the purchase sheet never appeared, likely due to a device restriction")
             }
         } catch {
